@@ -2,10 +2,9 @@ package hu.petrik.statikusosztalyok;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public final class Veletlen {
     private Veletlen() {
@@ -74,4 +73,35 @@ public final class Veletlen {
     public static String velTeljesNev(boolean nem) {
         return velVezetekNev() + " " + velKeresztNev(nem);
     }
+
+    public static String velDatum(int ev1, int ev2){
+        Random ev = new Random();
+        Random honap = new Random();
+        Random nap = new Random();
+        int generatedEv;
+        if(ev1 > ev2){
+            generatedEv = ev.nextInt(ev1) + ev2;
+        }
+        else{
+            generatedEv = ev.nextInt(ev2) + ev1;
+        }
+
+        int generatedHonap = honap.nextInt(12) + 1;
+
+        if(generatedHonap == 1 || generatedHonap == 3 || generatedHonap == 5 || generatedHonap == 7 || generatedHonap == 8 || generatedHonap == 10 || generatedHonap == 12){
+            int generatedNap = nap.nextInt(31) + 1;
+            return generatedEv + ":" + generatedHonap + ":" + generatedNap;
+        }
+        else if(generatedHonap == 2){
+            int generatedNap = nap.nextInt(28) + 1;
+            return generatedEv + ":" + generatedHonap + ":" + generatedNap;
+        }
+        else{
+            int generatedNap = nap.nextInt(30) + 1;
+            return generatedEv + ":" + generatedHonap + ":" + generatedNap;
+        }
+
+    }
+
+
 }
