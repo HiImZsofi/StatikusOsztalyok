@@ -2,6 +2,7 @@ package hu.petrik.statikusosztalyok;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.Normalizer;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -103,5 +104,13 @@ public final class Veletlen {
 
     }
 
+    public static String velEmail(String nev){
+        String nevWithoutAccents = nev.replaceAll("[^\\p{ASCII}]", ""); //nem működik de nincs időm megcsinálni
+        String nevWithoutWhitespace = nevWithoutAccents.replaceAll("\\s+","");
 
+        Random rnumber = new Random();
+        int generatedNumber = rnumber.nextInt(100)+1;
+
+        return nevWithoutWhitespace + generatedNumber + "@gmail.com";
+    }
 }

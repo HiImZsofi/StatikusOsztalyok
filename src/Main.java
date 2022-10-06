@@ -29,6 +29,8 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             System.out.println(Veletlen.velTeljesNev(false));
         }*/
-        System.out.println(Veletlen.velDatum(2002, 2009));
+       // System.out.println(Veletlen.velDatum(2002, 2009));
+
+        System.out.println(Veletlen.velEmail("Kiss János"));
     }
 }
