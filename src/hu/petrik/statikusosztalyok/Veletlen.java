@@ -18,6 +18,8 @@ public final class Veletlen {
 
     private static final List<String> velSportagak = feltolt("sportag.txt");
 
+    private static List<String> Velsportegyesuletek = feltolt("egyesulet.txt");
+
     private static List<String> feltolt(String fajlnev) {
         List<String> lista = new ArrayList<>();
         try {
@@ -137,14 +139,10 @@ public final class Veletlen {
     }
 
     public static String velSportag(){
-        Random r = new Random();
-        String sportag = "";
-        int rSportag = r.nextInt();
-        for (int i = 0; i < velSportagak.size(); i++) {
-            if(rSportag == i){
-                sportag = velSportagak.get(i);
-            }
-        }
-        return sportag;
+        return velSportagak.get(rnd.nextInt(velSportagak.size()));
+    }
+
+    public static String velSportEgyesulet(){
+        return Velsportegyesuletek.get(rnd.nextInt(Velsportegyesuletek.size()));
     }
 }

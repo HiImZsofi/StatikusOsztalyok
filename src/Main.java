@@ -16,7 +16,7 @@ public class Main {
         Math math = new Math();
         */
 
-        /*for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; i++) {
             System.out.println(Veletlen.velEgesz(5, 10));
         }
         System.out.println();
@@ -35,8 +35,10 @@ public class Main {
 
         System.out.println(Veletlen.velEmail("Kiss János"));
 
-        System.out.println(Veletlen.velMobil());*/
+        System.out.println(Veletlen.velMobil());
 
         System.out.println(Veletlen.velSportag());
+
+        System.out.println(Veletlen.velSportEgyesulet());
     }
 }
