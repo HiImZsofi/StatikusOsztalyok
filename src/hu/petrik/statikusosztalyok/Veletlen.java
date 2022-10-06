@@ -76,30 +76,28 @@ public final class Veletlen {
     }
 
     public static String velDatum(int ev1, int ev2){
-        Random ev = new Random();
         Random honap = new Random();
         Random nap = new Random();
-        int generatedEv;
-        if(ev1 > ev2){
-            generatedEv = ev.nextInt(ev1) + ev2;
-        }
-        else{
-            generatedEv = ev.nextInt(ev2) + ev1;
-        }
+
+        int ev = velEgesz(ev1, ev2);
 
         int generatedHonap = honap.nextInt(12) + 1;
 
         if(generatedHonap == 1 || generatedHonap == 3 || generatedHonap == 5 || generatedHonap == 7 || generatedHonap == 8 || generatedHonap == 10 || generatedHonap == 12){
             int generatedNap = nap.nextInt(31) + 1;
-            return generatedEv + ":" + generatedHonap + ":" + generatedNap;
+            return ev + "-" + generatedHonap + "-" + generatedNap;
         }
         else if(generatedHonap == 2){
-            int generatedNap = nap.nextInt(28) + 1;
-            return generatedEv + ":" + generatedHonap + ":" + generatedNap;
+            int generatedNap = 28;
+            return ev + "-" + generatedHonap + "-" + generatedNap;
+        }
+        else if(ev % 4 == 0){
+            int generatedNap = 29;
+            return ev + "-" + generatedHonap + "-" + generatedNap;
         }
         else{
             int generatedNap = nap.nextInt(30) + 1;
-            return generatedEv + ":" + generatedHonap + ":" + generatedNap;
+            return ev + "-" + generatedHonap + "-" + generatedNap;
         }
 
     }
@@ -112,5 +110,27 @@ public final class Veletlen {
         int generatedNumber = rnumber.nextInt(100)+1;
 
         return nevWithoutWhitespace + generatedNumber + "@gmail.com";
+    }
+
+    public static String velMobil(){
+        Random rsz = new Random();
+        int rProvider = rsz.nextInt(3) + 1;
+        if(rProvider == 1){
+            rProvider = 20;
+        }
+        else if(rProvider == 2){
+            rProvider = 30;
+        }
+        else{
+            rProvider = 70;
+        }
+        Random elsoresz = new Random();
+        Random masodikresz = new Random();
+        Random harmadikresz = new Random();
+        int first = elsoresz.nextInt(999) + 100;
+        int second = elsoresz.nextInt(99) + 1;
+        int third = elsoresz.nextInt(99) + 1;
+
+        return "+36 (" + rProvider + ") " + first + "-" + second + "-" + third;
     }
 }
