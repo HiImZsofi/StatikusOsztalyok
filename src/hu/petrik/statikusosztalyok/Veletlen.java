@@ -12,9 +12,11 @@ public final class Veletlen {
     }
 
     private static final Random rnd = new Random();
-    private static final List<String> vezNevek = feltolt("files/veznev.txt");
-    private static final List<String> ferfiKerNevek = feltolt("files/ferfikernev.txt");
-    private static final List<String> noiKerNevek = feltolt("files/noikernev.txt");
+    private static final List<String> vezNevek = feltolt("veznev.txt");
+    private static final List<String> ferfiKerNevek = feltolt("ferfikernev.txt");
+    private static final List<String> noiKerNevek = feltolt("noikernev.txt");
+
+    private static final List<String> velSportagak = feltolt("sportag.txt");
 
     private static List<String> feltolt(String fajlnev) {
         List<String> lista = new ArrayList<>();
@@ -132,5 +134,17 @@ public final class Veletlen {
         int third = elsoresz.nextInt(99) + 1;
 
         return "+36 (" + rProvider + ") " + first + "-" + second + "-" + third;
+    }
+
+    public static String velSportag(){
+        Random r = new Random();
+        String sportag = "";
+        int rSportag = r.nextInt();
+        for (int i = 0; i < velSportagak.size(); i++) {
+            if(rSportag == i){
+                sportag = velSportagak.get(i);
+            }
+        }
+        return sportag;
     }
 }

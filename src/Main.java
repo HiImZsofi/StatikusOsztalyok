@@ -1,5 +1,7 @@
 import hu.petrik.statikusosztalyok.Veletlen;
 
+import java.sql.SQLOutput;
+
 public class Main {
     /*
     int nemStatikusAdattag;
@@ -14,7 +16,7 @@ public class Main {
         Math math = new Math();
         */
 
-       /* for (int i = 0; i < 100; i++) {
+        /*for (int i = 0; i < 100; i++) {
             System.out.println(Veletlen.velEgesz(5, 10));
         }
         System.out.println();
@@ -28,11 +30,13 @@ public class Main {
         System.out.println();
         for (int i = 0; i < 5; i++) {
             System.out.println(Veletlen.velTeljesNev(false));
-        }*/
+        }
         System.out.println(Veletlen.velDatum(2002, 2009));
 
         System.out.println(Veletlen.velEmail("Kiss János"));
 
-        System.out.println(Veletlen.velMobil());
+        System.out.println(Veletlen.velMobil());*/
+
+        System.out.println(Veletlen.velSportag());
     }
 }
